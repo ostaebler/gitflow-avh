@@ -392,11 +392,7 @@ no-ff!                 Never fast-forward during the merge
 		if flag no_ff; then
 			git_do merge --no-ff "$BRANCH"
 		else
-			if [ "$(git rev-list -n2 "$BASE_BRANCH..$BRANCH" | wc -l)" -eq 1 ]; then
-				git_do merge --ff "$BRANCH"
-			else
-				git_do merge --no-ff "$BRANCH"
-			fi
+                              git_do merge --ff "$BRANCH"
 		fi
 	else
 		git_do merge --squash "$BRANCH"
